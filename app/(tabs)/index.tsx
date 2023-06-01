@@ -1,10 +1,16 @@
-import { Text, View } from "../../components/Themed";
+import { ScrollView } from "react-native";
+import { View } from "../../components/Themed";
 import VideoListItem from "../../components/VideoListItem";
+import HeaderCategory from "../../components/HeaderCategory/HeaderCategory";
 
 export default function TabOneScreen() {
   return (
     <View className="flex-1">
-      <VideoListItem />
+      <ScrollView className="flex-1 mt-0" showsVerticalScrollIndicator={false}>
+        {/* categories */}
+        <HeaderCategory />
+        <VideoListItem />
+      </ScrollView>
     </View>
   );
 }

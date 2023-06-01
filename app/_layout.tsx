@@ -27,7 +27,7 @@ const HeaderComponent = () => {
     "https://yt3.ggpht.com/SBra9X0UPsNzyDjGcvN4iw2pb5Qku_3qFd1figMt48J7rUdU8mJYHPHAx0t6d0E6wLcUU__nZjg=s68-c-k-c0x00ffffff-no-rj";
 
   return (
-    <SafeAreaView className="flex-row justify-between mx-4">
+    <SafeAreaView className="flex-row justify-between mx-4 mb-2">
       <View className="flex-row items-center space-x-1">
         {/* <Image source={image} style={{ height: 28, width: 40 }} /> */}
         <FontAwesome name="youtube-play" size={28} color="red" />
