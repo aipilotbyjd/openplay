@@ -42,7 +42,7 @@ export default function TabLayout() {
         name="spaces"
         options={{
           title: "spaces",
-          tabBarIcon: ({ color }) => <TabBarIcon name="meetup" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="anchor" color={color} />,
         }}
       />
       <Tabs.Screen
