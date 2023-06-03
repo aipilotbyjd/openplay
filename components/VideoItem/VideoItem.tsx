@@ -18,12 +18,19 @@ const VideoItem: React.FC<VideoItemProps> = ({ video }) => {
       />
       <View className="flex flex-col px-4 py-2">
         <View className="flex flex-row items-center mx-2">
-          <View className="flex flex-row space-x-2">
+          <View className="flex flex-row space-x-2 items-center">
             <Image
               source={{ uri: video.channelAvatarUrl }}
               className="w-8 h-8 rounded-full mt-2 ml-[-4]"
             />
-            <Text className="text-sm font-bold">{video.title}</Text>
+            <Text className="text-sm font-bold flex-shrink-0">
+              {video.title}
+            </Text>
+            <MaterialCommunityIcons
+              name="dots-vertical"
+              size={16}
+              color="gray"
+            />
           </View>
         </View>
         <View className="flex flex-row items-center">
