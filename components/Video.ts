@@ -5,6 +5,7 @@ interface Video {
   title: string;
   channelName: string;
   views: number;
+  uploadedAt: string;
 }
 
 export default Video;
