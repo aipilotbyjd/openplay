@@ -17,11 +17,11 @@ const VideoItem: React.FC<VideoItemProps> = ({ video }) => {
         className="w-full h-48 object-cover"
       />
       <View className="flex flex-col px-4 py-2">
-        <View className="flex flex-row items-center mb-2">
+        <View className="flex flex-row items-center mx-2">
           <View className="flex flex-row space-x-2">
             <Image
               source={{ uri: video.channelAvatarUrl }}
-              className="w-8 h-8 rounded-full mt-2"
+              className="w-8 h-8 rounded-full mt-2 ml-[-4]"
             />
             <Text className="text-sm font-bold">{video.title}</Text>
           </View>
