@@ -36,7 +36,9 @@ export default function TabLayout() {
         options={{
           title: "Home",
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon2 name="ios-home-sharp" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
