@@ -1,8 +1,9 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Pressable, useColorScheme } from "react-native";
+import { Tabs } from "expo-router";
+import { useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
+import { Ionicons } from "@expo/vector-icons";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -41,8 +42,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="spaces"
         options={{
-          title: "spaces",
-          tabBarIcon: ({ color }) => <TabBarIcon name="anchor" color={color} />,
+          title: "Spaces",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="md-grid" size={24} color="black" />
+          ),
         }}
       />
       <Tabs.Screen
