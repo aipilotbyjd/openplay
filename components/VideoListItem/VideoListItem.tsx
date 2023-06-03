@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Video from "../Video";
-import { FlatList, View } from "react-native";
+import { FlatList, ScrollView, View, VirtualizedList } from "react-native";
 import VideoItem from "../VideoItem";
 
 interface VideoListItemProps {
@@ -58,6 +58,7 @@ const videoData = [
 
 const VideoListItem: React.FC<VideoListItemProps> = ({ category }) => {
   const [videos, setVideos] = useState<Video[]>([]);
+  const getItemCount = () => videos.length;
 
   useEffect(() => {
     fetchVideos();
@@ -69,11 +70,11 @@ const VideoListItem: React.FC<VideoListItemProps> = ({ category }) => {
 
   return (
     <View>
-      <FlatList
-        data={videos}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <VideoItem video={item} />}
-      />
+      <ScrollView>
+        {videos.map((video) => (
+          <VideoItem key={video.id} video={video} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
