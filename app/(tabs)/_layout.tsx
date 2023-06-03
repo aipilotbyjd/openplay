@@ -15,6 +15,13 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+function TabBarIcon2(props: {
+  name: React.ComponentProps<typeof Ionicons>["name"];
+  color: string;
+}) {
+  return <Ionicons size={28} style={{ marginBottom: -3 }} {...props} />;
+}
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -44,7 +51,7 @@ export default function TabLayout() {
         options={{
           title: "Spaces",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="md-grid" size={24} color="black" />
+            <TabBarIcon2 name="md-grid" color={color} />
           ),
         }}
       />
@@ -53,7 +60,7 @@ export default function TabLayout() {
         options={{
           title: "library",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="list-alt" color={color} />
+            <TabBarIcon2 name="md-bookmark" color={color} />
           ),
         }}
       />
