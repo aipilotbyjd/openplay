@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 
-const HeaderCategory = () => {
+interface HeaderCategoryProps {
+  onCategoryChange: (category: string) => void;
+}
+
+const HeaderCategory: React.FC<HeaderCategoryProps> = ({
+  onCategoryChange,
+}) => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = ["All", "new", "unwached", "expired", "active"];
 
+  const handleCategorySelect = (category: string) => {
+    setActiveCategory(category);
+    onCategoryChange(category);
+  };
+
   return (
-    <View className="py-2 pb-3">
+    <View style={{ paddingVertical: 8 }}>
       <ScrollView
-        className="px-4"
+        style={{ paddingHorizontal: 16 }}
         horizontal
         showsHorizontalScrollIndicator={false}
       >
@@ -19,7 +30,7 @@ const HeaderCategory = () => {
           const buttonStyle = isActive ? "bg-green-500" : "bg-gray-200";
           return (
             <TouchableOpacity
-              onPress={() => setActiveCategory(category)}
+              onPress={() => handleCategorySelect(category)}
               key={index}
               className={`rounded-md p-1 px-3 mr-2 ${buttonStyle}`}
             >
