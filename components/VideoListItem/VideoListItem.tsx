@@ -3,6 +3,10 @@ import Video from "../Video";
 import { FlatList, View } from "react-native";
 import VideoItem from "../VideoItem";
 
+interface VideoListItemProps {
+  category: string;
+}
+
 const videoData = [
   {
     id: "1",
@@ -52,7 +56,7 @@ const videoData = [
   },
 ];
 
-const VideoListItem: React.FC = () => {
+const VideoListItem: React.FC<VideoListItemProps> = ({ category }) => {
   const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
