@@ -1,36 +1,47 @@
-import { StyleSheet } from "react-native";
+import React from "react";
 
-import EditScreenInfo from "../../components/EditScreenInfo";
-import { Text, View } from "../../components/Themed";
-
-export default function TabTwoScreen() {
+const ExploreSection = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-      <View className="bg-red-200"><Text className="text-red-900">Hello, world!</Text></View>
-    </View>
-  );
-}
+    <div className="bg-gray-100 py-6">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-4">Explore</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Songs */}
+          <div className="bg-white rounded-lg p-4">
+            <h3 className="text-lg font-bold mb-2">Songs</h3>
+            {/* Render your songs here */}
+            <ul>
+              <li className="text-gray-800 mb-1">Song 1</li>
+              <li className="text-gray-800 mb-1">Song 2</li>
+              <li className="text-gray-800 mb-1">Song 3</li>
+            </ul>
+          </div>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});
+          {/* Playlists */}
+          <div className="bg-white rounded-lg p-4">
+            <h3 className="text-lg font-bold mb-2">Playlists</h3>
+            {/* Render your playlists here */}
+            <ul>
+              <li className="text-gray-800 mb-1">Playlist 1</li>
+              <li className="text-gray-800 mb-1">Playlist 2</li>
+              <li className="text-gray-800 mb-1">Playlist 3</li>
+            </ul>
+          </div>
+
+          {/* Channels */}
+          <div className="bg-white rounded-lg p-4">
+            <h3 className="text-lg font-bold mb-2">Channels</h3>
+            {/* Render your channels here */}
+            <ul>
+              <li className="text-gray-800 mb-1">Channel 1</li>
+              <li className="text-gray-800 mb-1">Channel 2</li>
+              <li className="text-gray-800 mb-1">Channel 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ExploreSection;
