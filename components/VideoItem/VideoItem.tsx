@@ -41,7 +41,7 @@ const VideoItem: React.FC<VideoItemProps> = ({ video }) => {
           style={{ width: screenWidth, height: screenWidth * 0.56 }} // Assuming 16:9 aspect ratio for the video thumbnail
         />
       </Pressable>
-      <View style={{ padding: 16 }}>
+      <View style={{ padding: 4 }}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <TouchableOpacity onPress={handleChannelAvatarPress}>
             <Image
