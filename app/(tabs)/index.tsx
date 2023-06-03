@@ -9,7 +9,9 @@ export default function TabOneScreen() {
       <ScrollView className="flex-1 mt-0" showsVerticalScrollIndicator={false}>
         {/* categories */}
         <HeaderCategory />
-        <VideoListItem />
+        <ScrollView>
+          <VideoListItem />
+        </ScrollView>
       </ScrollView>
     </View>
   );
