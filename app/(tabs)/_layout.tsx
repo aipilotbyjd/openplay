@@ -26,6 +26,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          title: "Home",
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
@@ -33,8 +34,24 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Explore",
+          tabBarIcon: ({ color }) => <TabBarIcon name="meetup" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="spaces"
+        options={{
+          title: "spaces",
+          tabBarIcon: ({ color }) => <TabBarIcon name="meetup" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="library"
+        options={{
+          title: "library",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="list-alt" color={color} />
+          ),
         }}
       />
     </Tabs>
