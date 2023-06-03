@@ -1,7 +1,15 @@
-import React from "react";
-import { View, Image, Text, Dimensions } from "react-native";
-import Video from "../Video";
+import React, { useState } from "react";
+import {
+  View,
+  Image,
+  Text,
+  Dimensions,
+  Pressable,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Video from "../Video";
 
 interface VideoItemProps {
   video: Video;
@@ -9,39 +17,95 @@ interface VideoItemProps {
 
 const VideoItem: React.FC<VideoItemProps> = ({ video }) => {
   const screenWidth = Dimensions.get("window").width;
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleVideoPress = () => {
+    // Handle video press action here
+    Alert.alert("Video pressed on window");
+  };
+
+  const handleChannelAvatarPress = () => {
+    // Handle channel avatar press action here
+    Alert.alert("Chennel pressed on window");
+  };
+
+  const handleMenuPress = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
-    <View className="flex mb-4">
-      <Image
-        source={{ uri: video.thumbnailUrl }}
-        className="w-full h-48 object-cover"
-      />
-      <View className="flex flex-col px-4 py-2">
-        <View className="flex flex-row items-center mx-2">
-          <View className="flex flex-row space-x-2 items-center">
+    <View style={{ marginBottom: 16 }}>
+      <Pressable onPress={handleVideoPress}>
+        <Image
+          source={{ uri: video.thumbnailUrl }}
+          style={{ width: screenWidth, height: screenWidth * 0.56 }} // Assuming 16:9 aspect ratio for the video thumbnail
+        />
+      </Pressable>
+      <View style={{ padding: 16 }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={handleChannelAvatarPress}>
             <Image
               source={{ uri: video.channelAvatarUrl }}
-              className="w-8 h-8 rounded-full mt-2 ml-[-4]"
+              style={{ width: 32, height: 32, borderRadius: 16 }}
             />
-            <Text className="text-sm font-bold flex-shrink-0">
-              {video.title}
-            </Text>
+          </TouchableOpacity>
+          <Text
+            numberOfLines={2}
+            ellipsizeMode="tail"
+            style={{
+              flex: 1,
+              marginLeft: 8,
+              fontSize: 14,
+              fontWeight: "bold",
+            }}
+          >
+            {video.title}
+          </Text>
+          <TouchableOpacity onPress={handleMenuPress}>
             <MaterialCommunityIcons
-              name="dots-vertical"
-              size={16}
+              name={showMenu ? "dots-vertical" : "dots-horizontal"}
+              size={24}
               color="gray"
             />
-          </View>
+          </TouchableOpacity>
         </View>
-        <View className="flex flex-row items-center">
-          <Text className="text-sm text-gray-500">{video.channelName}</Text>
-          <Text className="ml-1 text-sm text-gray-500">•</Text>
-          <Text className="ml-1 text-sm text-gray-500">
+        <View style={{ flexDirection: "row", marginTop: 4 }}>
+          <Text style={{ fontSize: 12, color: "gray" }}>
+            {video.channelName}
+          </Text>
+          <Text
+            style={{
+              marginLeft: 4,
+              marginRight: 4,
+              fontSize: 12,
+              color: "gray",
+            }}
+          >
+            •
+          </Text>
+          <Text style={{ fontSize: 12, color: "gray" }}>
             {video.views} views
           </Text>
-          <Text className="ml-1 text-sm text-gray-500">•</Text>
-          <Text className="ml-1 text-sm text-gray-500">{video.uploadedAt}</Text>
+          <Text
+            style={{
+              marginLeft: 4,
+              marginRight: 4,
+              fontSize: 12,
+              color: "gray",
+            }}
+          >
+            •
+          </Text>
+          <Text style={{ fontSize: 12, color: "gray" }}>
+            {video.uploadedAt}
+          </Text>
         </View>
+        {showMenu && (
+          <View style={{ marginTop: 8 }}>
+            {/* Add your menu content here */}
+            <Text>Menu Content</Text>
+          </View>
+        )}
       </View>
     </View>
   );
